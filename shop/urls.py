@@ -21,12 +21,12 @@ from product import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/categories/', views.category_list, name='category-list'),
-    path('api/v1/categories/<int:pk>/', views.category_detail, name='category-detail'),
-    path('api/v1/products/', views.product_list, name='product-list'),
-    path('api/v1/products/<int:pk>/', views.product_detail, name='product-detail'),
-    path('api/v1/reviews/', views.review_list, name='review-list'),
-    path('api/v1/reviews/<int:pk>/', views.review_detail, name='review-detail'),
-    path('products/reviews/', views.product_reviews, name='product-reviews'),
+    path('api/v1/categories/', views.CategoryListCreateView.as_view(), name='category-list-create'),
+    path('api/v1/categories/<int:pk>/', views.CategoryDetailView.as_view(), name='category-detail'),
+    path('api/v1/products/', views.ProductListCreateView.as_view(), name='product-list-create'),
+    path('api/v1/products/<int:pk>/', views.ProductDetailView.as_view(), name='product-detail'),
+    path('api/v1/reviews/', views.ReviewListCreateView.as_view(), name='review-list-create'),
+    path('api/v1/reviews/<int:pk>/', views.ReviewDetailView.as_view(), name='review-detail'),
+    path('api/v1/product-reviews/', views.ProductReviewsView.as_view(), name='product-reviews'),
     path('api/v1/users/', include('users.urls'))
 ]
